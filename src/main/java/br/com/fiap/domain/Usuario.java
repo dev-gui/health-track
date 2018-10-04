@@ -2,12 +2,17 @@ package br.com.fiap.domain;
 
 import java.io.Serializable;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Usuario implements Serializable{
@@ -18,7 +23,7 @@ public class Usuario implements Serializable{
 	 */
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
-	private int id;
+	private Integer id;
 	
 	/**
 	 * Nome do usuário
@@ -43,6 +48,7 @@ public class Usuario implements Serializable{
 	/**
 	 * Data de nascimento
 	 */
+	@Temporal(TemporalType.DATE)
 	private Date nascimento;
 	
 	/**
@@ -55,6 +61,17 @@ public class Usuario implements Serializable{
 	 */
 	private String senha;
 	
+	@OneToMany(mappedBy="usuarioId")
+	private List<Peso> pesos = new ArrayList<>();
+	
+	@OneToMany(mappedBy="usuarioId")
+	private List<Pressao> pressao = new ArrayList<>();
+	
+	@OneToMany(mappedBy="usuarioId")
+	private List<Alimentacao> alimentacao = new ArrayList<>();
+	
+	@OneToMany(mappedBy="usuarioId")
+	private List<Atividade> atividade = new ArrayList<>();
 	
 	/**
 	 * Construção de usuário sem parâmetros
@@ -74,7 +91,7 @@ public class Usuario implements Serializable{
 	 * @param senha
 	 * @throws ParseException
 	 */
-	public Usuario(int id, String nome, String sobrenome, char sexo, float altura, Date data, String email,
+	public Usuario(Integer id, String nome, String sobrenome, char sexo, float altura, Date data, String email,
 			String senha) throws ParseException {
 		this.id = id;
 		this.nome = nome;
@@ -200,8 +217,12 @@ public class Usuario implements Serializable{
 	 * Obter id
 	 * @return id
 	 */
-	public int getId() {
+	public Integer getId() {
 		return id;
+	}
+	
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 

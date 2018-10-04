@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Alimentacao implements Calorias, Serializable {
@@ -31,12 +32,13 @@ public class Alimentacao implements Calorias, Serializable {
 	private float alimentacao6;
 	
 	// Atributo relacional
-	private Usuario ususarioId;
+	@ManyToOne
+	private Usuario usuarioId;
 	
 	public Alimentacao() {}
 
 	public Alimentacao(Integer id, Date data, float alimentacao1, float alimentacao2, float alimentacao3,
-			float alimentacao4, float alimentacao5, float alimentacao6, Usuario ususarioId) {
+			float alimentacao4, float alimentacao5, float alimentacao6, Usuario usuarioId) {
 		this.id = id;
 		this.data = data;
 		this.alimentacao1 = alimentacao1;
@@ -45,7 +47,7 @@ public class Alimentacao implements Calorias, Serializable {
 		this.alimentacao4 = alimentacao4;
 		this.alimentacao5 = alimentacao5;
 		this.alimentacao6 = alimentacao6;
-		this.ususarioId = ususarioId;
+		this.usuarioId = usuarioId;
 	}
 
 	public Integer getId() {
@@ -80,8 +82,8 @@ public class Alimentacao implements Calorias, Serializable {
 		return alimentacao6;
 	}
 
-	public Usuario getUsusarioId() {
-		return ususarioId;
+	public Usuario getUsuarioId() {
+		return usuarioId;
 	}
 
 	public void setData(Date data) {
@@ -112,8 +114,35 @@ public class Alimentacao implements Calorias, Serializable {
 		this.alimentacao6 = alimentacao6;
 	}
 
-	public void setUsusarioId(Usuario ususarioId) {
-		this.ususarioId = ususarioId;
+	public void setUsuarioId(Usuario usuarioId) {
+		this.usuarioId = usuarioId;
+	}
+
+	
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Alimentacao other = (Alimentacao) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
 	}
 
 	@Override
