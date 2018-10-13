@@ -147,8 +147,7 @@ public class Alimentacao implements Calorias, Serializable {
 
 	@Override
 	public float calcularCalorias() {
-		// TODO Auto-generated method stub
-		return 0;
+		return alimentacao1 + alimentacao2 + alimentacao3 + alimentacao4 + alimentacao5 + alimentacao6;
 	}
 	
 	

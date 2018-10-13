@@ -24,17 +24,20 @@ public class Pressao implements Serializable{
 	private Date data;
 	
 	// Atributo referencial
+	private Integer status;
+	
 	@ManyToOne
 	private Usuario usuarioId;
 	
 	public Pressao() {}
 
-	public Pressao(Integer id, Integer pressaoBaixa, Integer pressaoAlta, Date data, Usuario usuarioId) {
+	public Pressao(Integer id, Integer pressaoBaixa, Integer pressaoAlta, Date data, Usuario usuarioId, PressaoStatus status) {
 		this.id = id;
 		this.pressaoBaixa = pressaoBaixa;
 		this.pressaoAlta = pressaoAlta;
 		this.data = data;
 		this.usuarioId = usuarioId;
+		this.status = status.getCod();
 	}
 
 	public Integer getId() {
@@ -56,6 +59,10 @@ public class Pressao implements Serializable{
 	public Usuario getUsuarioId() {
 		return usuarioId;
 	}
+	
+	public PressaoStatus getStatus() {
+		return PressaoStatus.toEnum(status);
+	}
 
 	public void setId(Integer id) {
 		this.id = id;
@@ -75,6 +82,10 @@ public class Pressao implements Serializable{
 
 	public void setUsuarioId(Usuario usuarioId) {
 		this.usuarioId = usuarioId;
+	}
+	
+	public void setStatus(PressaoStatus status) {
+		this.status = status.getCod();
 	}
 
 	@Override

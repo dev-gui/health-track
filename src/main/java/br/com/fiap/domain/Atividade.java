@@ -29,7 +29,7 @@ public class Atividade implements Calorias, Serializable{
 
 	private Float calorias;
 	
-	private Esporte esporte;
+	private Integer esporte;
 	
 	@ManyToOne
 	private Usuario usuarioId;
@@ -43,7 +43,7 @@ public class Atividade implements Calorias, Serializable{
 		this.dataTermino = dataTermino;
 		this.distancia = distancia;
 		this.calorias = calorias;
-		this.esporte = esporte;
+		this.esporte = esporte.getCod();
 		this.usuarioId = usuarioId;
 	}
 
@@ -68,7 +68,7 @@ public class Atividade implements Calorias, Serializable{
 	}
 
 	public Esporte getEsporte() {
-		return esporte;
+		return Esporte.toEnum(esporte);
 	}
 
 	public Usuario getUsuarioId() {
@@ -96,7 +96,7 @@ public class Atividade implements Calorias, Serializable{
 	}
 
 	public void setEsporte(Esporte esporte) {
-		this.esporte = esporte;
+		this.esporte = esporte.getCod();
 	}
 
 	public void setUsuarioId(Usuario usuarioId) {
