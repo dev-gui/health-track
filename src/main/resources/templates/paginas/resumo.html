@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/dashboard.css">
+    <title>Health Track</title>
+    <link type="image/x-icon" rel="icon" href="imagens/favicon.ico">
+</head>
+
+<body>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <main class="container-fluid p1">
+        <div class="row">
+            <div class="col-12 col-md-2">
+                <p class="text-center text-success">Resumo mensal:</p>
+                <p class="m-2">Quantidade de atividades:</p>
+                <p class="m-2">Duração:</p>
+                <p class="m-2">Distância:</p>
+                <p class="m-2">Calorias:</p>
+            </div>
+            <div class="col-12 col-md-9">
+                <div class="row">
+                    <div class="col-12 col-md-6 p-3 table-responsive">
+                        <p class="h3 text-center text-success">Últimas atividades</p>
+                        <table class="table shadow">
+                            <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">Esporte</th>
+                                    <th scope="col">Duração</th>
+                                    <th scope="col">Distância</th>
+                                    <th scope="col">Data</th>
+                                    <th scope="col">Calorias</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Corrida</td>
+                                    <td>00:30:00</td>
+                                    <td>5km</td>
+                                    <td>07/06/2018</td>
+                                    <td>550kcal</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Corrida</td>
+                                    <td>00:15:00</td>
+                                    <td>2,5km</td>
+                                    <td>06/06/2018</td>
+                                    <td>275kcal</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Ciclismo</td>
+                                    <td>02:00:00</td>
+                                    <td>40km</td>
+                                    <td>05/06/2018</td>
+                                    <td>800kcal</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>Ciclismo</td>
+                                    <td>01:00:00</td>
+                                    <td>20km</td>
+                                    <td>04/06/2018</td>
+                                    <td>400kcal</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <td>Ciclismo</td>
+                                    <td>01:30:00</td>
+                                    <td>30km</td>
+                                    <td>03/06/2018</td>
+                                    <td>600kcal</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-12 col-md-6 p-3 table-responsive">
+                        <p class="h3 text-center text-success">Últimos registros da dieta</p>
+                        <table class="table shadow">
+                            <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">Refeições</th>
+                                    <th scope="col">Calorias</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">07/06/2018</th>
+                                    <td>05</td>
+                                    <td>2200kcal</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">06/06/2018</th>
+                                    <td>06</td>
+                                    <td>3000kcal</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">05/06/2018</th>
+                                    <td>05</td>
+                                    <td>2000kcal</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">04/06/2018</th>
+                                    <td>05</td>
+                                    <td>2100kcal</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">03/06/2018</th>
+                                    <td>04</td>
+                                    <td>1800kcal</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-12 col-md-6 p-3 table-responsive">
+                        <p class="text-center text-success h3">
+                            Últimos pesos registrados
+                        </p>
+                        <table class="table shadow">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Data</th>
+                                    <th>Peso</th>
+                                    <th>IMC</th>
+                                    <th>Classificação</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>1</th>
+                                    <td>07/06/2018</td>
+                                    <td>70kg</td>
+                                    <td>21,60kg/m²</td>
+                                    <td>Saudável</td>
+                                </tr>
+                                <tr>
+                                    <th>2</th>
+                                    <td>25/05/2018</td>
+                                    <td>73kg</td>
+                                    <td>22,53kg/m²</td>
+                                    <td>Saudável</td>
+                                </tr>
+                                <tr>
+                                    <th>3</th>
+                                    <td>01/05/2018</td>
+                                    <td>77kg</td>
+                                    <td>23,77kg/m²</td>
+                                    <td>Saudável</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-12 col-md-6 p-3 table-responsive">
+                        <p class="text-success text-center h3">Últimas pressões registradas</p>
+                        <table class="table shadow">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Data</th>
+                                    <th>Pressão</th>
+                                    <th>Classificação</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>1</th>
+                                    <td>07/06/2018</td>
+                                    <td>120/80mmHg</td>
+                                    <td>Normal</td>
+                                </tr>
+                                <tr>
+                                    <th>2</th>
+                                    <td>25/05/2018</td>
+                                    <td>130/80mmHg</td>
+                                    <td>Normal</td>
+                                </tr>
+                                <tr>
+                                    <th>3</th>
+                                    <td>01/05/2018</td>
+                                    <td>140/100mmHg</td>
+                                    <td>Hipertensa</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

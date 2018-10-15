@@ -1,0 +1,59 @@
+@media screen and (max-width: 576px) {
+	.h2 {
+		font-size: 1.5em;
+	}
+	.h3 {
+		font-size: 1.3em;
+	}
+}
+
+body{
+	font-family: "Nunito";
+	overflow: hidden;
+}
+
+.p1{
+	background: url(../imagens/fundo1.jpg) no-repeat center center;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	height: 100vh;
+}
+
+header{
+	height: 100vh;
+}
+
+.seta{
+	height: 7vh;
+}
+
+#info{
+	background-color: rgb(236, 236, 236);
+	height: 100vh;
+	overflow: auto;
+}
+
+.img-info{
+	height: 20vh;
+	width: 20vh;
+}
+
+.altura15{
+	height: 15vh;
+}
+
+.info1,
+.info2,
+.info3 {
+	margin: 1em 0px;
+}
+
+.meio {
+	height: 50vh;
+}
+
+.form-error {
+	color:red
+}

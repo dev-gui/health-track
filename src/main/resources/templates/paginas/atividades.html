@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <link rel="stylesheet" href="../css/zabuto_calendar.min.css">
+    <title>Health Track</title>
+    <link type="image/x-icon" rel="icon" href="../imagens/favicon.ico">
+    <script src="../js/jquery.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+    <script src="../js/jquery.validacao.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker").datepicker()
+        });
+    </script>
+</head>
+
+<body>
+    <main class="container-fluid p1">
+        <div class="row">
+            <div class="col-12 col-md-3">
+                <div class="m-4 py-2">
+                    <p class="text-center text-success h4">Importar atividade</p>
+                    <div class="border">
+                        <p class="py-2">Formatos suportados pelo seistema: .xxx, .xxx e .xxx.</p>
+                        <div class="impBox">
+                            <label class="btn btn-secondary">
+                                <input type="file" />
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-4 pt-5">
+                    <p class="text-center text-success h4">Registrar atividade</p>
+                    <div class="boorder">
+                        <form>
+                            <div class="d-flex justify-content-center">
+                                <div id="datepicker" class="form-group"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="rEsporte">Esporte:</label>
+                                <select type="email" class="form-control" id="rEsporte">
+                                    <option>Corrida</option>
+                                    <option>Ciclismo</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="rDuracao">Duração:</label>
+                                <input type="time" class="form-control" id="rDuracao" data-validation="required" data-validation-help="HH:mm" data-validation-error-msg="Campo Obrigatório">
+                            </div>
+                            <div class="form-group">
+                                <label for="rDistancia">Distância:</label>
+                                <input type="number" class="form-control" id="rDistancia">
+                                <p>*Em quilômetro</p>
+                            </div>
+                            <div class="form-group">
+                                <label for="rObservacao">Observação:</label>
+                                <textarea class="form-control" id="rObservacao" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <div class="d-flex justify-content-around">
+                                    <button class="btn btn-secondary" type="reset">Limpar</button>
+                                    <button class="btn btn-success" type="submit">Salvar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-9 mt-3">
+                <div class="d-flex flex-column justify-content-center align-items-center">
+                        <img src="../imagens/calendario.jpg" alt="Calendário" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="../js/zabuto_calendar.min.js"></script>
+    <script>$.validate({
+            modules: "html5",
+            validateOnBlur: true
+        }) </script>
+    <script>
+        $(document).ready(function () {
+            $("#my-calendar").zabuto_calendar({ language: "en" });
+        });
+    </script>
+</body>
+
+</html>
