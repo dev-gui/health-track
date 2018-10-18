@@ -2,159 +2,154 @@
 <html lang="pt-br">
 
 <head>
-<meta charset="utf-8">
-<meta name="description" content="Health Track">
-<meta name="author" content="Guilherme G. Tavares">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="X-UA-Compatible" content="IE-edge">
-<link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700"
-	rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/estilo.css">
-<link rel="stylesheet" href="css/jquery-ui.css">
-<title>Health Track</title>
-<link type="image/x-icon" rel="icon" href="imagens/favicon.ico">
-<script src="js/jquery.js"></script>
-<script src="js/jquery-ui.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.validacao.js"></script>
-<script src="js/js.js"></script>
+    <meta charset="utf-8">
+    <meta name="description" content="Health Track">
+    <meta name="author" content="Guilherme G. Tavares">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/estilo.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <title>Health Track</title>
+    <link type="image/x-icon" rel="icon" href="imagens/favicon.ico">
 </head>
 
 <body>
-	<div class="container-fluid p1" id="volta">
-		<header>
-			<nav
-				class="navbar navbar-expand-lg navbar-light h-25 align-items-start">
-				<a class="navbar-brand" href="index.html">
-					<h1>Health Track</h1>
-				</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					data-target="#navbarSupportedContent"
-					aria-controls="navbarSupportedContent" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active"><a class="nav-link" href="#">
-								<button type="button" class="btn btn-success btn-lg"
-									data-toggle="modal" data-target="#btncadastro">Entrar
-								</button>
-						</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="cadastro">
-								<button class="btn btn-success btn-lg" type="button">
-									Registrar</button>
-						</a></li>
-					</ul>
-				</div>
-			</nav>
-			<div class="modal fade" id="btncadastro" tabindex="-1" role="dialog"
-				aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-				<div class="modal-dialog modal-dialog-centered" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalCenterTitle">Login</h5>
-							<button type="button" class="close" data-dismiss="modal"
-								aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body">
-							<form>
-								<label for="email" class="grey-text">Email:</label> <input
-									type="email" id="email" class="form-control"
-									data-validation="required"
-									data-validation-error-msg="Campos obrigatórios"> <br>
-								<label for="senha" class="grey-text">Senha:</label> <input
-									type="password" id="senha" class="form-control mb-1"
-									data-validation="required"
-									data-validation-error-msg="Campos obrigatórios"> <input
-									type="checkbox" name="lembrar" id="lembrar"> <label
-									for="lembrar">Lembrar senha</label> <br>
-								<!-- Preciso arrumar esqueci senha -->
-								<a href="">Esqueci senha</a>
-								<div class="text-center mt-4">
-									<a href="dashboard">
-										<button class="btn btn-success btn-lg" type="button">Entrar</button>
-									</a>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row align-items-center h-50">
-				<div class="col-12 col-sm-4 offset-sm-2">
-					<p class="h2">
-						<strong>Seu novo amigo.</strong>
-					</p>
-					<p class="h3">
-						O Health Track lhe ajudará<br>a manter
-						motivado.
-					</p>
-				</div>
-			</div>
-			<div class="row h-25">
-				<div class="mx-auto mt-auto">
-					<a href="#info" id="seta1"> <img class="seta"
-						src="imagens/seta-baixo.png" alt="Seta Baixo">
-					</a>
-				</div>
-			</div>
-		</header>
-	</div>
-	<div class="container-fluid" id="info">
-		<main>
-		<div class="row altura15">
-			<div class="mx-auto mb-auto">
-				<a href="#volta" id="seta2"> <img src="imagens/seta-cima.png"
-					alt="Seta Cima" class="seta">
-				</a>
-			</div>
-		</div>
-		<div class="row">
-			<div class="mx-auto mb-2">
-				<p class="h1">Porque usar o Health Track?</p>
-			</div>
-		</div>
-		<!-- Preciso completar -->
-		<div class="row info1">
-			<div class="offset-md-3">
-				<img src="imagens/info1.jpg" alt="Imagem 1"
-					class="img-info img-thumbnail rounded-circle">
-			</div>
-			<div class="col-sm-6">
-				<p>mmmmm mmmmmmmmmmm mmmmmmmmm mmmm mmmmmmmmm m m mmmmmmmmm
-					mmmmmmmm m mmmmmmm mmmmm m mmmmmmmmmmmm m mmmmmmmmmm</p>
-			</div>
-		</div>
-		<div class="row info2">
-			<div class="offset-md-3">
-				<img src="imagens/info2.jpg" alt="Imagem 2"
-					class="img-info img-thumbnail rounded-circle">
-			</div>
-			<div class="col-sm-6">
-				<p>mmmmm mmmmmmmmmmm mmmmmmmmm mmmm mmmmmmmmm m m mmmmmmmmm
-					mmmmmmmm m mmmmmmm mmmmm m mmmmmmmmmmmm m mmmmmmmmmm</p>
-			</div>
-		</div>
-		<div class="row info3">
-			<div class="offset-md-3">
-				<img src="imagens/info3.jpg" alt="Imagem 3"
-					class="img-info img-thumbnail rounded-circle">
-			</div>
-			<div class="col-sm-6">
-				<p>mmmmm mmmmmmmmmmm mmmmmmmmm mmmm mmmmmmmmm m m mmmmmmmmm
-					mmmmmmmm m mmmmmmm mmmmm m mmmmmmmmmmmm m mmmmmmmmmm</p>
-			</div>
-		</div>
-		</main>
-	</div>
-	<script>
-		$("#htAmigo").show("fold", 1000)
-	</script>
+    <div class="container-fluid p1" id="volta">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light h-25 align-items-start">
+                <!--<img src="imagens/logo.png" alt="logo"> -->
+                    <h2>Health Track</h2>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">
+                                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#btncadastro">
+                                    Entrar
+                                </button>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/cadastrar">
+                                <button class="btn btn-success btn-lg" type="button">
+                                    Registrar
+                                </button>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="modal fade" id="btncadastro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Login</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <label for="email" class="grey-text">Email:</label>
+                                <input type="email" id="email" class="form-control" data-validation="required"
+                                    data-validation-error-msg="Campos obrigatórios">
+                                <br>
+                                <label for="senha" class="grey-text">Senha:</label>
+                                <input type="password" id="senha" class="form-control mb-1" data-validation="required"
+                                    data-validation-error-msg="Campos obrigatórios">
+                                <input type="checkbox" name="lembrar" id="lembrar">
+                                <label for="lembrar">Lembrar senha</label>
+                                <br>
+                                <!-- Preciso arrumar esqueci senha -->
+                                <a href="">Esqueci senha</a>
+                                <div class="text-center mt-4">
+                                    <a href="/dashboard">
+                                        <button class="btn btn-success btn-lg" type="button">Entrar</button>
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center h-50">
+                <div class="col-12 col-sm-4 offset-sm-2">
+                    <p class="h2">
+                        <strong>Seu novo amigo.</strong>
+                    </p>
+                    <p class="h3">Health Track é um sistema que
+                        <br>ajudará a lhe manter saudável.</p>
+                </div>
+            </div>
+            <div class="row h-25">
+                <div class="mx-auto mt-auto">
+                    <a href="#info" id="seta1">
+                        <img class="seta" src="imagens/seta-baixo.png" alt="Seta Baixo">
+                    </a>
+                </div>
+            </div>
+        </header>
+    </div>
+    <div class="container-fluid" id="info">
+        <main>
+            <div class="row altura15">
+                <div class="mx-auto mb-auto">
+                    <a href="#volta" id="seta2">
+                        <img src="imagens/seta-cima.png" alt="Seta Cima" class="seta">
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="mx-auto mb-2">
+                    <p class="h1">Porque usar o Health Track?</p>
+                </div>
+            </div>
+            <!-- Preciso completar -->
+            <div class="row info1">
+                <div class="offset-md-3">
+                    <img src="imagens/info1.jpg" alt="Imagem 1" class="img-info img-thumbnail rounded-circle">
+                </div>
+                <div class="col-sm-6">
+                    <br><br>
+                    <p>Registre suas atividades físicas e se desafie. O Health Track o ajudará nessa tarefa.</p>
+                </div>
+            </div>
+            <div class="row info2">
+                <div class="offset-md-3">
+                    <img src="imagens/info2.jpg" alt="Imagem 2" class="img-info img-thumbnail rounded-circle">
+                </div>
+                <div class="col-sm-6">
+                    <br><br>
+                    <p>Controle sua alimentação com o Health Track e saiba como anda sua ingestão de calorias.</p>
+                </div>
+            </div>
+            <div class="row info3">
+                <div class="offset-md-3">
+                    <img src="imagens/info3.jpg" alt="Imagem 3" class="img-info img-thumbnail rounded-circle">
+                </div>
+                <div class="col-sm-6">
+                    <br><br>
+                    <p>O Health Track quer lhe ajudar a ter uma vida saudável e te deixar sempre motivado. </p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.validacao.js"></script>
+    <script src="js/js.js"></script>
+    <script>
+
+        $("#htAmigo").show("fold", 1000)
+
+    </script>
 </body>
 
 </html>

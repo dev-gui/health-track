@@ -10,6 +10,6 @@ public class ContaController {
 
 	@GetMapping
 	public String conta() {
-		return "/paginas/conta";
+		return "/fragments/conta";
 	}
 }

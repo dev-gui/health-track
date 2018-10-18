@@ -43,7 +43,7 @@ public class Usuario implements Serializable{
 	/**
 	 * Altura do usuário
 	 */
-	private float altura;
+	private double altura;
 	
 	/**
 	 * Data de nascimento
@@ -91,7 +91,7 @@ public class Usuario implements Serializable{
 	 * @param senha
 	 * @throws ParseException
 	 */
-	public Usuario(Integer id, String nome, String sobrenome, char sexo, float altura, Date data, String email,
+	public Usuario(Integer id, String nome, String sobrenome, char sexo, double altura, Date data, String email,
 			String senha) throws ParseException {
 		this.id = id;
 		this.nome = nome;
@@ -109,16 +109,30 @@ public class Usuario implements Serializable{
 	 * @return nome do usuário
 	 */
 	public String getNome() {
-		return nome + " " + sobrenome;
+		return nome;
 	}
-
 
 	/**
 	 * Incluir/modificar novo nome
 	 * @param nome novo
 	 */
-	public void setNome(String nome, String sobrenome) {
+	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	/**
+	 * Obter sobrenome
+	 * @return nome do usuário
+	 */
+	public String getSobrenome() {
+		return sobrenome;
+	}
+
+	/**
+	 * Incluir/modificar novo sobrenome
+	 * @param nome novo
+	 */
+	public void setSobrenome(String sobrenome) {
 		this.sobrenome = sobrenome;
 	}
 
@@ -144,7 +158,7 @@ public class Usuario implements Serializable{
 	 * Obter altura
 	 * @return altura
 	 */
-	public float getAltura() {
+	public double getAltura() {
 		return altura;
 	}
 
@@ -153,7 +167,7 @@ public class Usuario implements Serializable{
 	 * Incluir/modificar nova altura
 	 * @param altura
 	 */
-	public void setAltura(float altura) {
+	public void setAltura(double altura) {
 		this.altura = altura;
 	}
 

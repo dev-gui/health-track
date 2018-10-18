@@ -4,12 +4,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.com.fiap.domain.Alimentacao;
+
 @Controller
-@RequestMapping("/dieta")
+@RequestMapping("/alimentacao")
 public class DietaController {
 
 	@GetMapping
-	public String dieta() {
-		return "/paginas/dieta";
+	public String alimentacao() {
+		return "/fragments/alimentacao";
+	}
+	
+	@GetMapping("/add-alimentacao")
+	public String addAlimentacao(Alimentacao alimentacao) {
+		return "/fragments/add-alimentacao";
 	}
 }

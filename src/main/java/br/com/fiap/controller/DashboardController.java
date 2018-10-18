@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class DashboardController {
 
 	@GetMapping
-	public String menu() {
-		return "/paginas/dashboard";
+	public String conteudo() {
+		return "/fragments/resumo";
 	}
 }
