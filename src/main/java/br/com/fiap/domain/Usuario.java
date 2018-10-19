@@ -11,8 +11,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 
 @Entity
 public class Usuario implements Serializable{
@@ -48,7 +49,7 @@ public class Usuario implements Serializable{
 	/**
 	 * Data de nascimento
 	 */
-	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Date nascimento;
 	
 	/**
@@ -92,7 +93,7 @@ public class Usuario implements Serializable{
 	 * @throws ParseException
 	 */
 	public Usuario(Integer id, String nome, String sobrenome, char sexo, double altura, Date data, String email,
-			String senha) throws ParseException {
+			String senha) {
 		this.id = id;
 		this.nome = nome;
 		this.sobrenome = sobrenome;

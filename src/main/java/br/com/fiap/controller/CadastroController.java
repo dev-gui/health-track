@@ -24,6 +24,6 @@ public class CadastroController {
 	@PostMapping("/salvar")
 	public String salvar(Usuario usuario) {
 		dao.save(usuario);
-		return "redirect:/fragments/resumo";
+		return "redirect:/dashboard";
 	} 
 }
