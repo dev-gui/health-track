@@ -2,41 +2,123 @@
 <html layout:decorate="~{layout}">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 
-<div class="page-wrapper" layout:fragment="corpo">
-            <!-- ============================================================== -->
-            <!-- Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-             <div class="page-breadcrumb">
-                <div class="row">
-                    <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Dashboard</h4>
-                    </div>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
+	<div class="page-wrapper" layout:fragment="corpo">
+		<!-- ============================================================== -->
+		<!-- Bread crumb and right sidebar toggle -->
+		<!-- ============================================================== -->
+		<div class="page-breadcrumb">
+			<div class="row">
+				<div class="col-12 d-flex no-block align-items-center">
+					<h4 class="page-title">Dashboard</h4>
+				</div>
+			</div>
+		</div>
+		<!-- ============================================================== -->
+		<!-- End Bread crumb and right sidebar toggle -->
+		<!-- ============================================================== -->
+		<!-- ============================================================== -->
+		<!-- Container fluid  -->
+		<!-- ============================================================== -->
 
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <footer class="footer text-center">
-                Desenvolvimento back-end e front-end por Guilherme Tavares.
-            </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
-        </div>
+		<div class="container-fluid">
+			<div class="wrapper">
+			
+				<h5 class="text-success">Últimas atividades</h5>
+				<div class="table">
+					<div class="row header bg-success">
+						<div class="cell">Data</div>
+						<div class="cell">Esporte</div>
+						<div class="cell">Duração</div>
+						<div class="cell">Distância</div>
+						<div class="cell">Calorias</div>
+						<div class="cell">Ações</div>
+					</div>
+
+					<div class="row" th:each="a : ${atividades}" >
+						<div class="cell" th:text="${#dates.format(a.data, 'dd/MM/yyyy')}"></div>
+						<div class="cell" th:text="${a.esporte}"></div>
+						<div class="cell" th:text="${#dates.format(a.duracao, 'HH:mm')}"></div>
+						<div class="cell" th:text="${#numbers.formatDecimal(a.distancia, 1, 2, 'COMMA') + ' km'}"></div>
+						<div class="cell" >Em manutenção</div>
+						<div class="cell" >
+							<a href="" data-toggle="tooltip" data-placement="top" title="Atualizar"><i class="mdi mdi-check"></i></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Excluir">  <i class="mdi mdi-close"></i></a>
+						</div>
+					</div>
+				</div>
+				
+				<h5 class="text-success">Últimas alimentações</h5>
+				<div class="table">
+					<div class="row header bg-success">
+						<div class="cell">Data</div>
+						<div class="cell">Total calorias</div>
+						<div class="cell">Ações</div>
+					</div>
+
+					<div class="row" th:each="a, stats : ${alimentacoes}" th:if="${stats.index >= stats.size-5}">
+						<div class="cell" th:text="${#dates.format(a.data, 'dd/MM/yyyy')}"></div>
+						<div class="cell" th:text="${#numbers.formatDecimal(a.calcularCalorias(), 1, 2, 'COMMA')} + ' kcal'"></div>
+						<div class="cell">
+							<a th:href="@{/alimentacao/editar/{id} (id=${a.id})}" data-toggle="tooltip" data-placement="top" title="Atualizar"><i class="mdi mdi-check"></i></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Excluir">  <i class="mdi mdi-close"></i></a>
+						</div>
+					</div>
+				</div>
+				
+				<h5 class="text-success">Últimos registros de peso</h5>
+				<div class="table">
+					<div class="row header bg-success">
+						<div class="cell">Data</div>
+						<div class="cell">Peso</div>
+						<div class="cell">Ações</div>
+					</div>
+
+					<div class="row" th:each="peso : ${pesos}" >
+						<div class="cell" th:text="${#dates.format(peso.data, 'dd/MM/yyyy')}"></div>
+						<div class="cell" th:text="${#numbers.formatDecimal(peso.peso, 1, 2, 'COMMA')} + ' kg'"></div>
+						<div class="cell">
+							<a th:href="@{/peso/editar/{id} (id=${peso.id})}" data-toggle="tooltip" data-placement="top" title="Atualizar"><i class="mdi mdi-check"></i></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Excluir">  <i class="mdi mdi-close"></i></a>
+						</div>
+					</div>
+				</div>
+				
+				<h5 class="text-success">Últimos registros de pressão</h5>
+				<div class="table">
+					<div class="row header bg-success">
+						<div class="cell">Data</div>
+						<div class="cell">Pressão</div>
+						<div class="cell">Ações</div>
+					</div>
+
+					<div class="row" th:each="pressao : ${pressoes}" >
+						<div class="cell" th:text="${#dates.format(pressao.data, 'dd/MM/yyyy')}"></div>
+						<div class="cell" th:text="${pressao.pressao}"></div>
+						<div class="cell">
+							<a href="" data-toggle="tooltip" data-placement="top" title="Atualizar"><i class="mdi mdi-check"></i></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Excluir">  <i class="mdi mdi-close"></i></a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- ============================================================== -->
+		<!-- End Container fluid  -->
+		<!-- ============================================================== -->
+		<!-- ============================================================== -->
+		<!-- footer -->
+		<!-- ============================================================== -->
+		<footer class="footer text-center"> Desenvolvimento back-end
+			e front-end por Guilherme Tavares. </footer>
+		<!-- ============================================================== -->
+		<!-- End footer -->
+		<!-- ============================================================== -->
+	</div>
 </body>
 </html>

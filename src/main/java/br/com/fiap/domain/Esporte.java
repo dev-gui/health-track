@@ -6,15 +6,15 @@ public enum Esporte {
 	CICLISMO(2, "Ciclismo"),
 	SKATE(3, "Skate");
 	
-	private int cod;
+	private Integer cod;
 	private String descricao;
 	
-	private Esporte(int cod, String descricao) {
+	private Esporte(Integer cod, String descricao) {
 		this.cod = cod;
 		this.descricao = descricao;
 	}
 	
-	public int getCod() {
+	public Integer getCod() {
 		return cod;
 	}
 	
@@ -22,14 +22,14 @@ public enum Esporte {
 		return descricao;
 	}
 	
-	public static Esporte toEnum(Integer cod) {
+	public static String toEnum(Integer cod) {
 		
 		if(cod == null) {
 			return null;
 		}
 		for(Esporte e: Esporte.values()) {
 			if(cod.equals(e.getCod())) {
-				return e;
+				return e.getDescricao();
 			}
 		}
 		throw new IllegalArgumentException("Id inválido: " + cod);

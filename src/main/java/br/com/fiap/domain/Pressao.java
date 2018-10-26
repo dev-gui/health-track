@@ -8,6 +8,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
+import org.springframework.format.annotation.NumberFormat.Style;
 
 @Entity
 public class Pressao implements Serializable{
@@ -17,10 +24,16 @@ public class Pressao implements Serializable{
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private Integer id;
 	
+	@NotNull
+	@NumberFormat(style=Style.NUMBER)
 	private Integer pressaoBaixa;
 	
+	@NotNull
+	@NumberFormat(style=Style.NUMBER)
 	private Integer pressaoAlta;
 	
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Date data;
 	
 	// Atributo referencial
@@ -31,25 +44,20 @@ public class Pressao implements Serializable{
 	
 	public Pressao() {}
 
-	public Pressao(Integer id, Integer pressaoBaixa, Integer pressaoAlta, Date data, Usuario usuarioId, PressaoStatus status) {
+	public Pressao(Integer id, Integer pressaoBaixa, Integer pressaoAlta, Date data, Usuario usuarioId) {
 		this.id = id;
 		this.pressaoBaixa = pressaoBaixa;
 		this.pressaoAlta = pressaoAlta;
 		this.data = data;
 		this.usuarioId = usuarioId;
-		this.status = status.getCod();
 	}
 
 	public Integer getId() {
 		return id;
 	}
 
-	public Integer getPressaoBaixa() {
-		return pressaoBaixa;
-	}
-
-	public Integer getPressaoAlta() {
-		return pressaoAlta;
+	public String getPressao() {
+		return pressaoAlta + "/" + pressaoBaixa;
 	}
 
 	public Date getData() {

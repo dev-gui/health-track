@@ -3,16 +3,17 @@
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<!-- Tell the browser to be responsive to screen width -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="author" content="Guilherme Tavares">
-<!-- Favicon icon
-    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png"> -->
-<title>Health Track</title>
-<!-- Custom CSS -->
-<link href="../../dist/css/style.min.css" rel="stylesheet">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- Tell the browser to be responsive to screen width -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Guilherme Tavares">
+	<!-- Favicon icon
+	    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png"> -->
+	<title>Health Track</title>
+	<!-- Custom CSS -->
+	<link href="../../dist/css/style.min.css" rel="stylesheet">
+	<link href="../../assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
 </head>
 <body>
 	<div class="preloader">
@@ -138,18 +139,25 @@
 	</div>
 
     <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
     <script src="../../assets/libs/popper.js/dist/umd/popper.min.js"></script>
     <script src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../../assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
     <script src="../../assets/extra-libs/sparkline/sparkline.js"></script>
-    <!--Wave Effects -->
     <script src="../../dist/js/waves.js"></script>
-    <!--Menu sidebar -->
     <script src="../../dist/js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
     <script src="../../dist/js/custom.min.js"></script>
-    <!--This page JavaScript -->
-    <!-- <script src="../../dist/js/pages/dashboards/dashboard1.js"></script> -->
+    <script src="/js/jquery.mask.js"></script>
+    <script src="../../assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
+    <script src="../../assets/extra-libs/DataTables/datatables.min.js"></script>
+    
+    <script>
+       $('#zero_config').DataTable();
+    </script>
+    <script>
+    	$(document).ready(function(){
+  			$('.data').mask('00/00/0000');
+  			$('.duracao').mask('00:00');
+		});
+   	</script>
 </body>
 </html>

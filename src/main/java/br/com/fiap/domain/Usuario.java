@@ -1,7 +1,6 @@
 package br.com.fiap.domain;
 
 import java.io.Serializable;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -11,8 +10,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
+import org.springframework.format.annotation.NumberFormat.Style;
 
 
 @Entity
@@ -44,11 +47,13 @@ public class Usuario implements Serializable{
 	/**
 	 * Altura do usuário
 	 */
-	private double altura;
+	@NumberFormat(style=Style.NUMBER)
+	private Double altura;
 	
 	/**
 	 * Data de nascimento
 	 */
+	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Date nascimento;
 	
@@ -90,9 +95,8 @@ public class Usuario implements Serializable{
 	 * @param data em String 
 	 * @param email
 	 * @param senha
-	 * @throws ParseException
 	 */
-	public Usuario(Integer id, String nome, String sobrenome, char sexo, double altura, Date data, String email,
+	public Usuario(Integer id, String nome, String sobrenome, char sexo, Double altura, Date data, String email,
 			String senha) {
 		this.id = id;
 		this.nome = nome;
@@ -159,7 +163,7 @@ public class Usuario implements Serializable{
 	 * Obter altura
 	 * @return altura
 	 */
-	public double getAltura() {
+	public Double getAltura() {
 		return altura;
 	}
 
@@ -168,7 +172,7 @@ public class Usuario implements Serializable{
 	 * Incluir/modificar nova altura
 	 * @param altura
 	 */
-	public void setAltura(double altura) {
+	public void setAltura(Double altura) {
 		this.altura = altura;
 	}
 

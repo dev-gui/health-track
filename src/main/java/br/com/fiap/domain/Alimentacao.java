@@ -8,6 +8,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
+import org.springframework.format.annotation.NumberFormat.Style;
 
 @Entity
 public class Alimentacao implements Calorias, Serializable {
@@ -15,21 +22,30 @@ public class Alimentacao implements Calorias, Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
-	private Integer id;
+	private Long id;
 	
+	@NotNull
+	@DateTimeFormat(pattern="dd/MM/yyyy")
+	@Temporal(TemporalType.DATE)
 	private Date data;
 	
-	private float alimentacao1;
+	@NumberFormat(style=Style.NUMBER)
+	private Double alimentacao1;
 	
-	private float alimentacao2;
+	@NumberFormat(style=Style.NUMBER)
+	private Double alimentacao2;
 	
-	private float alimentacao3;
+	@NumberFormat(style=Style.NUMBER)
+	private Double alimentacao3;
 	
-	private float alimentacao4;
+	@NumberFormat(style=Style.NUMBER)
+	private Double alimentacao4;
 	
-	private float alimentacao5;
+	@NumberFormat(style=Style.NUMBER)
+	private Double alimentacao5;
 	
-	private float alimentacao6;
+	@NumberFormat(style=Style.NUMBER)
+	private Double alimentacao6;
 	
 	// Atributo relacional
 	@ManyToOne
@@ -37,8 +53,8 @@ public class Alimentacao implements Calorias, Serializable {
 	
 	public Alimentacao() {}
 
-	public Alimentacao(Integer id, Date data, float alimentacao1, float alimentacao2, float alimentacao3,
-			float alimentacao4, float alimentacao5, float alimentacao6, Usuario usuarioId) {
+	public Alimentacao(Long id, Date data, Double alimentacao1, Double alimentacao2, Double alimentacao3,
+			Double alimentacao4, Double alimentacao5, Double alimentacao6, Usuario usuarioId) {
 		this.id = id;
 		this.data = data;
 		this.alimentacao1 = alimentacao1;
@@ -50,7 +66,7 @@ public class Alimentacao implements Calorias, Serializable {
 		this.usuarioId = usuarioId;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -58,59 +74,63 @@ public class Alimentacao implements Calorias, Serializable {
 		return data;
 	}
 
-	public float getAlimentacao1() {
+	public Double getAlimentacao1() {
 		return alimentacao1;
 	}
 
-	public float getAlimentacao2() {
+	public Double getAlimentacao2() {
 		return alimentacao2;
 	}
 
-	public float getAlimentacao3() {
+	public Double getAlimentacao3() {
 		return alimentacao3;
 	}
 
-	public float getAlimentacao4() {
+	public Double getAlimentacao4() {
 		return alimentacao4;
 	}
 
-	public float getAlimentacao5() {
+	public Double getAlimentacao5() {
 		return alimentacao5;
 	}
 
-	public float getAlimentacao6() {
+	public Double getAlimentacao6() {
 		return alimentacao6;
 	}
 
 	public Usuario getUsuarioId() {
 		return usuarioId;
 	}
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public void setData(Date data) {
 		this.data = data;
 	}
 
-	public void setAlimentacao1(float alimentacao1) {
+	public void setAlimentacao1(Double alimentacao1) {
 		this.alimentacao1 = alimentacao1;
 	}
 
-	public void setAlimentacao2(float alimentacao2) {
+	public void setAlimentacao2(Double alimentacao2) {
 		this.alimentacao2 = alimentacao2;
 	}
 
-	public void setAlimentacao3(float alimentacao3) {
+	public void setAlimentacao3(Double alimentacao3) {
 		this.alimentacao3 = alimentacao3;
 	}
 
-	public void setAlimentacao4(float alimentacao4) {
+	public void setAlimentacao4(Double alimentacao4) {
 		this.alimentacao4 = alimentacao4;
 	}
 
-	public void setAlimentacao5(float alimentacao5) {
+	public void setAlimentacao5(Double alimentacao5) {
 		this.alimentacao5 = alimentacao5;
 	}
 
-	public void setAlimentacao6(float alimentacao6) {
+	public void setAlimentacao6(Double alimentacao6) {
 		this.alimentacao6 = alimentacao6;
 	}
 
@@ -146,8 +166,46 @@ public class Alimentacao implements Calorias, Serializable {
 	}
 
 	@Override
-	public float calcularCalorias() {
-		return alimentacao1 + alimentacao2 + alimentacao3 + alimentacao4 + alimentacao5 + alimentacao6;
+	public double calcularCalorias() {
+		double sum = 0;
+		if(alimentacao1 == null) {
+			alimentacao1 = 0.0;
+		}
+		else {
+			sum += alimentacao1;
+		}
+		if(alimentacao2 == null) {
+			alimentacao2 = 0.0;
+		}
+		else {
+			sum += alimentacao2;
+		}
+		if(alimentacao3 == null) {
+			alimentacao3 = 0.0;
+		}
+		else {
+			sum += alimentacao3;
+		}
+		if(alimentacao4 == null) {
+			alimentacao4 = 0.0;
+		}
+		else {
+			sum += alimentacao4;
+		}
+		if(alimentacao5 == null) {
+			alimentacao5 = 0.0;
+		}
+		else {
+			sum += alimentacao5;
+		}
+		if(alimentacao6 == null) {
+			alimentacao6 = 0.0;
+		}
+		else {
+			sum += alimentacao6;
+		}
+		
+		return sum;
 	}
 	
 	

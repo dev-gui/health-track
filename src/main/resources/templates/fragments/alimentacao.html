@@ -5,38 +5,71 @@
 </head>
 <body>
 
-<div class="page-wrapper" layout:fragment="corpo">
-            <!-- ============================================================== -->
-            <!-- Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-             <div class="page-breadcrumb">
-                <div class="row">
-                    <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Alimentação</h4>
-                    </div>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
-
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <footer class="footer text-center">
-                Desenvolvimento back-end e front-end por Guilherme Tavares.
-            </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
-        </div>
+	<div class="page-wrapper" layout:fragment="corpo">
+		<!-- ============================================================== -->
+		<!-- Bread crumb and right sidebar toggle -->
+		<!-- ============================================================== -->
+		<div class="page-breadcrumb">
+			<div class="row">
+				<div class="col-12 d-flex no-block align-items-center">
+					<h4 class="page-title">Alimentação</h4>
+				</div>
+			</div>
+		</div>
+		<!-- ============================================================== -->
+		<!-- End Bread crumb and right sidebar toggle -->
+		<!-- ============================================================== -->
+		<!-- ============================================================== -->
+		<!-- Container fluid  -->
+		<!-- ============================================================== -->
+		<div class="container-fluid">
+			<div class="row">
+				<div class="card">
+					<div class="card-body">
+						<div class="table-responsive">
+							<table id="zero_config"
+								class="table table-striped table-bordered">
+								<thead>
+									<tr>
+										<th>Data</th>
+										<th>Primeira alimentação</th>
+										<th>Segunda alimentação</th>
+										<th>Terceira alimentação</th>
+										<th>Quarta alimentaçao</th>
+										<th>Quinta alimentação</th>
+										<th>Sexta alimentação</th>
+										<th>Total de calorias</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="a : ${alimentacoes}">
+										<td th:text="${#dates.format(a.data, 'dd/MM/yyyy')}"></td>
+										<td th:text="${#numbers.formatDecimal(a.alimentacao1, 1, 2,'COMMA')}"></td>
+										<td th:text="${#numbers.formatDecimal(a.alimentacao2, 1, 2,'COMMA')}"></td>
+										<td th:text="${#numbers.formatDecimal(a.alimentacao3, 1, 2,'COMMA')}"></td>
+										<td th:text="${#numbers.formatDecimal(a.alimentacao4, 1, 2,'COMMA')}"></td>
+										<td th:text="${#numbers.formatDecimal(a.alimentacao5, 1, 2,'COMMA')}"></td>
+										<td th:text="${#numbers.formatDecimal(a.alimentacao6, 1, 2,'COMMA')}"></td>
+										<td th:text="${#numbers.formatDecimal(a.calcularCalorias(), 1, 2, 'COMMA')}"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ============================================================== -->
+		<!-- End Container fluid  -->
+		<!-- ============================================================== -->
+		<!-- ============================================================== -->
+		<!-- footer -->
+		<!-- ============================================================== -->
+		<footer class="footer text-center"> Desenvolvimento back-end
+			e front-end por Guilherme Tavares. </footer>
+		<!-- ============================================================== -->
+		<!-- End footer -->
+		<!-- ============================================================== -->
+	</div>
 </body>
 </html>

@@ -11,6 +11,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
+import org.springframework.format.annotation.NumberFormat.Style;
+
 @Entity
 public class Atividade implements Calorias, Serializable{
 	private static final long serialVersionUID = 1L;
@@ -19,16 +23,18 @@ public class Atividade implements Calorias, Serializable{
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private Integer id;
 	
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date dataInicio;
+	@DateTimeFormat(pattern="dd/MM/yyyy")
+	@Temporal(TemporalType.DATE)
+	private Date data;
 	
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date dataTermino;
+	@DateTimeFormat(pattern="HH:mm")
+	@Temporal(TemporalType.TIME)
+	private Date duracao;
 	
+	@NumberFormat(style=Style.NUMBER)
 	private Float distancia;
-
-	private Float calorias;
 	
+	@NumberFormat(style=Style.NUMBER)
 	private Integer esporte;
 	
 	@ManyToOne
@@ -36,13 +42,12 @@ public class Atividade implements Calorias, Serializable{
 	
 	public Atividade() {}
 
-	public Atividade(Integer id, Date dataInicio, Date dataTermino, Float distancia, Float calorias, Esporte esporte,
+	public Atividade(Integer id, Date data, Date duracao, Float distancia, Esporte esporte,
 			Usuario usuarioId) {
 		this.id = id;
-		this.dataInicio = dataInicio;
-		this.dataTermino = dataTermino;
+		this.data = data;
+		this.duracao = duracao;
 		this.distancia = distancia;
-		this.calorias = calorias;
 		this.esporte = esporte.getCod();
 		this.usuarioId = usuarioId;
 	}
@@ -51,23 +56,19 @@ public class Atividade implements Calorias, Serializable{
 		return id;
 	}
 
-	public Date getDataInicio() {
-		return dataInicio;
+	public Date getData() {
+		return data;
 	}
 
-	public Date getDataTermino() {
-		return dataTermino;
+	public Date getDuracao() {
+		return duracao;
 	}
 
 	public Float getDistancia() {
 		return distancia;
 	}
 
-	public Float getCalorias() {
-		return calorias;
-	}
-
-	public Esporte getEsporte() {
+	public String getEsporte() {
 		return Esporte.toEnum(esporte);
 	}
 
@@ -79,20 +80,16 @@ public class Atividade implements Calorias, Serializable{
 		this.id = id;
 	}
 
-	public void setDataInicio(Date dataInicio) {
-		this.dataInicio = dataInicio;
+	public void setData(Date data) {
+		this.data = data;
 	}
 
-	public void setDataTermino(Date dataTermino) {
-		this.dataTermino = dataTermino;
+	public void setDuracao(Date duracao) {
+		this.duracao = duracao;
 	}
 
 	public void setDistancia(Float distancia) {
 		this.distancia = distancia;
-	}
-
-	public void setCalorias(Float calorias) {
-		this.calorias = calorias;
 	}
 
 	public void setEsporte(Esporte esporte) {
@@ -131,9 +128,9 @@ public class Atividade implements Calorias, Serializable{
 	}
 
 	@Override
-	public float calcularCalorias() {
+	public double calcularCalorias() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 0.0;
 	}
 	
 	

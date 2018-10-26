@@ -5,38 +5,104 @@
 </head>
 <body>
 
-<div class="page-wrapper" layout:fragment="corpo">
-            <!-- ============================================================== -->
-            <!-- Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-             <div class="page-breadcrumb">
-                <div class="row">
-                    <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Adicionar novo registro de alimentação</h4>
-                    </div>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
-
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <footer class="footer text-center">
-                Desenvolvimento back-end e front-end por Guilherme Tavares.
-            </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
-        </div>
+	<div class="page-wrapper" layout:fragment="corpo">
+		<!-- ============================================================== -->
+		<!-- Bread crumb and right sidebar toggle -->
+		<!-- ============================================================== -->
+		<div class="page-breadcrumb">
+			<div class="row">
+				<div class="col-12 d-flex no-block align-items-center">
+					<h4 class="page-title">Adicionar novo registro de alimentação</h4>
+				</div>
+			</div>
+		</div>
+		<!-- ============================================================== -->
+		<!-- End Bread crumb and right sidebar toggle -->
+		<!-- ============================================================== -->
+		<!-- ============================================================== -->
+		<!-- Container fluid  -->
+		<!-- ============================================================== -->
+		<div class="container-fluid">
+			<div class="row justify-content-center">
+				<div class="col-12 col-lg-8">
+					<div class="card">
+						<form id="form1" method="POST" th:action="${alimentacao.id} == null ? @{/alimentacao/salvar} : @{/alimentacao/editar}" th:object="${alimentacao}">
+							<div class="card-body">
+								<div class="form-group row">
+									<label for="data" class="col-md-3 m-t-15">Data da alimentação</label>
+									<div class="col-sm-9">
+										<input type="text" class="form-control data" id="data"
+											placeholder="dd/mm/aaaa" th:field="*{data}">
+									</div>
+								</div>
+							</div>
+								<div class="border-top"></div>
+							<div class="card-body">
+								<div class="form-group row">
+									<label for="alimentacao1" class="col-md-3 m-t-15">Primeira alimentação</label>
+									<div class="col-sm-9">
+										<input type="text" class="form-control" id="alimentacao1"
+											placeholder="Calorias" th:field="*{alimentacao1}">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="alimentacao2" class="col-md-3 m-t-15">Segunda alimentação</label>
+									<div class="col-sm-9">
+										<input type="text" class="form-control" id="alimentacao2"
+											placeholder="Calorias" th:field="*{alimentacao2}">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="alimentacao3" class="col-md-3 m-t-15">Terceira alimentação</label>
+									<div class="col-sm-9">
+										<input type="text" class="form-control" id="alimentacao3"
+											placeholder="Calorias" th:field="*{alimentacao3}">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="alimentacao4" class="col-md-3 m-t-15">Quarta alimentação</label>
+									<div class="col-sm-9">
+										<input type="text" class="form-control" id="alimentacao4"
+											placeholder="Calorias" th:field="*{alimentacao4}">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="alimentacao5" class="col-md-3 m-t-15">Quinta alimentação</label>
+									<div class="col-sm-9">
+										<input type="text" class="form-control" id="alimentacao5"
+											placeholder="Calorias" th:field="*{alimentacao5}">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="alimentacao6" class="col-md-3 m-t-15">Sexta alimentação</label>
+									<div class="col-sm-9">
+										<input type="text" class="form-control" id="alimentacao6"
+											placeholder="Calorias" th:field="*{alimentacao6}">
+									</div>
+								</div>
+							</div>
+							<div class="border-top">
+								<div class="card-body">
+								<input type="hidden" id="id" th:field="*{id}">
+									<button type="submit" class="btn btn-success">Enviar</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ============================================================== -->
+		<!-- End Container fluid  -->
+		<!-- ============================================================== -->
+		<!-- ============================================================== -->
+		<!-- footer -->
+		<!-- ============================================================== -->
+		<footer class="footer text-center"> Desenvolvimento back-end
+			e front-end por Guilherme Tavares. </footer>
+		<!-- ============================================================== -->
+		<!-- End footer -->
+		<!-- ============================================================== -->
+	</div>
 </body>
 </html>

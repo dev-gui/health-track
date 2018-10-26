@@ -8,6 +8,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
+import org.springframework.format.annotation.NumberFormat.Style;
 
 @Entity
 public class Peso implements Serializable{
@@ -17,8 +24,13 @@ public class Peso implements Serializable{
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private Integer id;
 	
-	private float peso;
+	@NumberFormat(style=Style.NUMBER)
+	@NotNull
+	private Double peso;
 	
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="dd/MM/yyyy")
+	@NotNull
 	private Date data;
 	
 	@ManyToOne
@@ -26,7 +38,7 @@ public class Peso implements Serializable{
 	
 	public Peso() {}
 
-	public Peso(Integer id, float peso, Date data, Usuario usuarioId) {
+	public Peso(Integer id, Double peso, Date data, Usuario usuarioId) {
 		this.id = id;
 		this.peso = peso;
 		this.data = data;
@@ -41,11 +53,11 @@ public class Peso implements Serializable{
 		this.id = id;
 	}
 
-	public float getPeso() {
+	public Double getPeso() {
 		return peso;
 	}
 
-	public void setPeso(float peso) {
+	public void setPeso(Double peso) {
 		this.peso = peso;
 	}
 
