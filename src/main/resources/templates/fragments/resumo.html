@@ -38,14 +38,14 @@
 						<div class="cell">Ações</div>
 					</div>
 
-					<div class="row" th:each="a : ${atividades}" >
+					<div class="row" th:each="a, stats : ${atividades}" th:if="${stats.index >= stats.size-5}">
 						<div class="cell" th:text="${#dates.format(a.data, 'dd/MM/yyyy')}"></div>
-						<div class="cell" th:text="${a.esporte}"></div>
+						<div class="cell" th:text="${a.esporte.descricao}"></div>
 						<div class="cell" th:text="${#dates.format(a.duracao, 'HH:mm')}"></div>
 						<div class="cell" th:text="${#numbers.formatDecimal(a.distancia, 1, 2, 'COMMA') + ' km'}"></div>
 						<div class="cell" >Em manutenção</div>
 						<div class="cell" >
-							<a href="" data-toggle="tooltip" data-placement="top" title="Atualizar"><i class="mdi mdi-check"></i></a>
+							<a th:href="@{/atividade/editar/{id} (id=${a.id})}" data-toggle="tooltip" data-placement="top" title="Atualizar"><i class="mdi mdi-check"></i></a>
                             <a href="#" data-toggle="tooltip" data-placement="top" title="Excluir">  <i class="mdi mdi-close"></i></a>
 						</div>
 					</div>
@@ -77,7 +77,7 @@
 						<div class="cell">Ações</div>
 					</div>
 
-					<div class="row" th:each="peso : ${pesos}" >
+					<div class="row" th:each="peso, stats : ${pesos}" th:if="${stats.index >= stats.size-5}">
 						<div class="cell" th:text="${#dates.format(peso.data, 'dd/MM/yyyy')}"></div>
 						<div class="cell" th:text="${#numbers.formatDecimal(peso.peso, 1, 2, 'COMMA')} + ' kg'"></div>
 						<div class="cell">
@@ -95,11 +95,11 @@
 						<div class="cell">Ações</div>
 					</div>
 
-					<div class="row" th:each="pressao : ${pressoes}" >
+					<div class="row" th:each="pressao, stats : ${pressoes}" th:if="${stats.index >= stats.size-5}">
 						<div class="cell" th:text="${#dates.format(pressao.data, 'dd/MM/yyyy')}"></div>
 						<div class="cell" th:text="${pressao.pressao}"></div>
 						<div class="cell">
-							<a href="" data-toggle="tooltip" data-placement="top" title="Atualizar"><i class="mdi mdi-check"></i></a>
+							<a th:href="@{/pressao/editar/{id} (id=${pressao.id})}" data-toggle="tooltip" data-placement="top" title="Atualizar"><i class="mdi mdi-check"></i></a>
                             <a href="#" data-toggle="tooltip" data-placement="top" title="Excluir">  <i class="mdi mdi-close"></i></a>
 						</div>
 					</div>

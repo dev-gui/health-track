@@ -34,7 +34,7 @@ public class Atividade implements Calorias, Serializable{
 	@NumberFormat(style=Style.NUMBER)
 	private Float distancia;
 	
-	@NumberFormat(style=Style.NUMBER)
+	
 	private Integer esporte;
 	
 	@ManyToOne
@@ -68,7 +68,7 @@ public class Atividade implements Calorias, Serializable{
 		return distancia;
 	}
 
-	public String getEsporte() {
+	public Esporte getEsporte() {
 		return Esporte.toEnum(esporte);
 	}
 

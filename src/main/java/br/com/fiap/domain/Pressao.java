@@ -59,6 +59,14 @@ public class Pressao implements Serializable{
 	public String getPressao() {
 		return pressaoAlta + "/" + pressaoBaixa;
 	}
+	
+	public Integer getPressaoAlta() {
+		return pressaoAlta;
+	}
+	
+	public Integer getPressaoBaixa() {
+		return pressaoBaixa;
+	}
 
 	public Date getData() {
 		return data;

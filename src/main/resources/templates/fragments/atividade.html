@@ -44,7 +44,7 @@
 										<td th:text="${a.esporte}"></td>
 										<td th:text="${#dates.format(a.duracao, 'HH:mm')}"></td>
 										<td th:text="${#numbers.formatDecimal(a.distancia, 1, 2,'COMMA') + ' km'}"></td>
-										<td th:text="${#numbers.formatDecimal(a.calcularCalorias(), 1, 2, 'COMMA')}"></td>
+										<td th:text="${#numbers.formatDecimal(a.calcularCalorias(), 1, 2, 'COMMA') + ' kcal'}"></td>
 									</tr>
 								</tbody>
 							</table>

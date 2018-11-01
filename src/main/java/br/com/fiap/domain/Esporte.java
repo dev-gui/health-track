@@ -22,14 +22,14 @@ public enum Esporte {
 		return descricao;
 	}
 	
-	public static String toEnum(Integer cod) {
+	public static Esporte toEnum(Integer cod) {
 		
 		if(cod == null) {
 			return null;
 		}
 		for(Esporte e: Esporte.values()) {
 			if(cod.equals(e.getCod())) {
-				return e.getDescricao();
+				return e;
 			}
 		}
 		throw new IllegalArgumentException("Id inválido: " + cod);

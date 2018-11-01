@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -30,10 +31,22 @@ public class AtividadeController {
 		return "/fragments/add-atividade";
 	}
 	
-	@PostMapping("/add-atividade/salvar")
+	@PostMapping("/salvar")
 	public String cadastrar(@ModelAttribute("form1") Atividade atividade) {
 		dao.save(atividade);
 		return "redirect:/atividade";
+	}
+	
+	@GetMapping("/editar/{id}")
+	public String preEditar (@PathVariable("id") Integer id, ModelMap model) {
+		model.addAttribute("atividade", dao.getOne(id));
+		return "/fragments/add-atividade";
+	}
+	
+	@PostMapping("/editar")
+	public String editar(@ModelAttribute("form1") Atividade atividade) {
+		dao.save(atividade);
+		return "redirect:/dashboard";
 	}
 	
 	@ModelAttribute("esporte")
