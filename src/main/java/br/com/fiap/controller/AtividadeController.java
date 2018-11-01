@@ -49,6 +49,12 @@ public class AtividadeController {
 		return "redirect:/dashboard";
 	}
 	
+	@GetMapping("/excluir/{id}")
+	public String excluir(@PathVariable("id") Integer id) {
+		dao.deleteById(id);
+		return "redirect:/dashboard";
+	}
+	
 	@ModelAttribute("esporte")
 	public Esporte[] getEsportes() {
 		return Esporte.values();

@@ -47,4 +47,10 @@ public class PressaoController {
 		dao.save(pressao);
 		return "redirect:/dashboard";
 	}
+	
+	@GetMapping("/excluir/{id}")
+	public String excluir(@PathVariable("id") Integer id) {
+		dao.deleteById(id);
+		return "redirect:/dashboard";
+	}
 }

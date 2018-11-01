@@ -47,4 +47,10 @@ public class DietaController {
 		dao.save(alimentacao);
 		return "redirect:/dashboard";
 	}
+	
+	@GetMapping("/excluir/{id}")
+	public String excluir(@PathVariable("id") Long id) {
+		dao.deleteById(id);
+		return "redirect:/dashboard";
+	}
 }

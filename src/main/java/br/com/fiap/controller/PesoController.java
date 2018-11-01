@@ -47,4 +47,10 @@ public class PesoController {
 		dao.save(peso);
 		return "redirect:/dashboard";
 	}
+	
+	@GetMapping("/excluir/{id}")
+	public String excluir(@PathVariable("id") Integer id) {
+		dao.deleteById(id);
+		return "redirect:/dashboard";
+	}
 }

@@ -46,7 +46,7 @@
 						<div class="cell" >Em manutenção</div>
 						<div class="cell" >
 							<a th:href="@{/atividade/editar/{id} (id=${a.id})}" data-toggle="tooltip" data-placement="top" title="Atualizar"><i class="mdi mdi-check"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Excluir">  <i class="mdi mdi-close"></i></a>
+                            <a th:href="@{/atividade/excluir/{id} (id=${a.id})}" data-toggle="tooltip" data-placement="top" title="Excluir">  <i class="mdi mdi-close"></i></a>
 						</div>
 					</div>
 				</div>
@@ -64,7 +64,7 @@
 						<div class="cell" th:text="${#numbers.formatDecimal(a.calcularCalorias(), 1, 2, 'COMMA')} + ' kcal'"></div>
 						<div class="cell">
 							<a th:href="@{/alimentacao/editar/{id} (id=${a.id})}" data-toggle="tooltip" data-placement="top" title="Atualizar"><i class="mdi mdi-check"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Excluir">  <i class="mdi mdi-close"></i></a>
+                            <a th:href="@{/alimentacao/excluir/{id} (id=${a.id})}" data-toggle="tooltip" data-placement="top" title="Excluir">  <i class="mdi mdi-close"></i></a>
 						</div>
 					</div>
 				</div>
@@ -82,7 +82,7 @@
 						<div class="cell" th:text="${#numbers.formatDecimal(peso.peso, 1, 2, 'COMMA')} + ' kg'"></div>
 						<div class="cell">
 							<a th:href="@{/peso/editar/{id} (id=${peso.id})}" data-toggle="tooltip" data-placement="top" title="Atualizar"><i class="mdi mdi-check"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Excluir">  <i class="mdi mdi-close"></i></a>
+                            <a th:href="@{/peso/excluir/{id} (id=${peso.id})}" data-toggle="tooltip" data-placement="top" title="Excluir">  <i class="mdi mdi-close"></i></a>
 						</div>
 					</div>
 				</div>
@@ -100,7 +100,7 @@
 						<div class="cell" th:text="${pressao.pressao}"></div>
 						<div class="cell">
 							<a th:href="@{/pressao/editar/{id} (id=${pressao.id})}" data-toggle="tooltip" data-placement="top" title="Atualizar"><i class="mdi mdi-check"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Excluir">  <i class="mdi mdi-close"></i></a>
+                            <a th:href="@{/pressao/excluir/{id} (id=${pressao.id})}" data-toggle="tooltip" data-placement="top" title="Excluir">  <i class="mdi mdi-close"></i></a>
 						</div>
 					</div>
 				</div>
