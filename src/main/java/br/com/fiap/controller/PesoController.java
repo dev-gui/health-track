@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.fiap.domain.Peso;
 import br.com.fiap.repository.PesoRepository;
@@ -25,9 +26,10 @@ public class PesoController {
 	}
 	
 	@PostMapping("/salvar")
-	public String salvar(@ModelAttribute("form1") Peso peso) {
+	public String salvar(@ModelAttribute("form1") Peso peso, RedirectAttributes att) {
 		dao.save(peso);
-		return "redirect:/peso";
+		att.addFlashAttribute("sucesso", "Peso salvo com sucesso.");
+		return "redirect:/peso/add-peso";
 	}
 	
 	@GetMapping
@@ -43,14 +45,16 @@ public class PesoController {
 	}
 	
 	@PostMapping("/editar")
-	public String editar(@ModelAttribute("form1") Peso peso) {
+	public String editar(@ModelAttribute("form1") Peso peso, RedirectAttributes att) {
 		dao.save(peso);
-		return "redirect:/dashboard";
+		att.addFlashAttribute("sucesso", "Peso editado com sucesso.");
+		return "redirect:/peso/add-peso";
 	}
 	
 	@GetMapping("/excluir/{id}")
-	public String excluir(@PathVariable("id") Integer id) {
+	public String excluir(@PathVariable("id") Integer id, RedirectAttributes att) {
 		dao.deleteById(id);
+		att.addFlashAttribute("sucesso", "Peso excluído com sucesso.");
 		return "redirect:/dashboard";
 	}
 }

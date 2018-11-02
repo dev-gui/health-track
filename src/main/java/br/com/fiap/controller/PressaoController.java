@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.fiap.domain.Pressao;
 import br.com.fiap.repository.PressaoRepository;
@@ -31,9 +32,10 @@ public class PressaoController {
 	}
 	
 	@PostMapping("/salvar")
-	public String salvar(@ModelAttribute("form1") Pressao pressao) {
+	public String salvar(@ModelAttribute("form1") Pressao pressao, RedirectAttributes att) {
 		dao.save(pressao);
-		return "redirect:/pressao";
+		att.addFlashAttribute("sucesso", "Pressão salva com sucesso.");
+		return "redirect:/pressao/add-pressao";
 	}
 	
 	@GetMapping("/editar/{id}")
@@ -43,14 +45,16 @@ public class PressaoController {
 	}
 	
 	@PostMapping("/editar")
-	public String editar(@ModelAttribute("form1") Pressao pressao) {
+	public String editar(@ModelAttribute("form1") Pressao pressao, RedirectAttributes att) {
 		dao.save(pressao);
-		return "redirect:/dashboard";
+		att.addFlashAttribute("sucesso", "Pressão excluída com sucesso.");
+		return "redirect:/pressao/add-pressao";
 	}
 	
 	@GetMapping("/excluir/{id}")
-	public String excluir(@PathVariable("id") Integer id) {
+	public String excluir(@PathVariable("id") Integer id, RedirectAttributes att) {
 		dao.deleteById(id);
+		att.addFlashAttribute("sucesso", "Pressão excluída com sucesso.");
 		return "redirect:/dashboard";
 	}
 }

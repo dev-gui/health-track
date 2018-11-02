@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.fiap.domain.Alimentacao;
 import br.com.fiap.repository.AlimentacaoRepository;
@@ -31,9 +32,10 @@ public class DietaController {
 	}
 	
 	@PostMapping("/salvar")
-	public String salvar(@ModelAttribute("form1") Alimentacao alimentacao) {
+	public String salvar(@ModelAttribute("form1") Alimentacao alimentacao, RedirectAttributes att) {
 		dao.save(alimentacao);
-		return "redirect:/alimentacao";
+		att.addFlashAttribute("sucesso", "Alimentação salva com sucesso.");
+		return "redirect:/alimentacao/add-alimentacao";
 	}
 	
 	@GetMapping("/editar/{id}")
@@ -43,14 +45,16 @@ public class DietaController {
 	}
 	
 	@PostMapping("/editar")
-	public String editar(@ModelAttribute("form1") Alimentacao alimentacao) {
+	public String editar(@ModelAttribute("form1") Alimentacao alimentacao, RedirectAttributes att) {
 		dao.save(alimentacao);
-		return "redirect:/dashboard";
+		att.addFlashAttribute("sucesso", "Alimentação editada com sucesso.");
+		return "redirect:/alimentacao/add-alimentacao";
 	}
 	
 	@GetMapping("/excluir/{id}")
-	public String excluir(@PathVariable("id") Long id) {
+	public String excluir(@PathVariable("id") Long id, RedirectAttributes att) {
 		dao.deleteById(id);
+		att.addFlashAttribute("sucesso", "Alimentação excluída com sucesso.");
 		return "redirect:/dashboard";
 	}
 }

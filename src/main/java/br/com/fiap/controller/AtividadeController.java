@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.fiap.domain.Atividade;
 import br.com.fiap.domain.Esporte;
@@ -32,9 +33,10 @@ public class AtividadeController {
 	}
 	
 	@PostMapping("/salvar")
-	public String cadastrar(@ModelAttribute("form1") Atividade atividade) {
+	public String cadastrar(@ModelAttribute("form1") Atividade atividade, RedirectAttributes att) {
 		dao.save(atividade);
-		return "redirect:/atividade";
+		att.addFlashAttribute("sucesso", "Atividade inserida com sucesso.");
+		return "redirect:/atividade/add-atividade";
 	}
 	
 	@GetMapping("/editar/{id}")
@@ -44,14 +46,16 @@ public class AtividadeController {
 	}
 	
 	@PostMapping("/editar")
-	public String editar(@ModelAttribute("form1") Atividade atividade) {
+	public String editar(@ModelAttribute("form1") Atividade atividade, RedirectAttributes att) {
 		dao.save(atividade);
-		return "redirect:/dashboard";
+		att.addFlashAttribute("sucesso", "Atividade editada com sucesso.");
+		return "redirect:/atividade/add-atividade";
 	}
 	
 	@GetMapping("/excluir/{id}")
-	public String excluir(@PathVariable("id") Integer id) {
+	public String excluir(@PathVariable("id") Integer id, RedirectAttributes att) {
 		dao.deleteById(id);
+		att.addFlashAttribute("sucesso", "Atividade excluída com sucesso.");
 		return "redirect:/dashboard";
 	}
 	
