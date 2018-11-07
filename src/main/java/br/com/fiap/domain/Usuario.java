@@ -3,9 +3,15 @@ package br.com.fiap.domain;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
+import javax.persistence.CollectionTable;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,10 +23,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 import org.springframework.format.annotation.NumberFormat.Style;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 public class Usuario implements Serializable{
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 2L;
 
 	/**
 	 * Id do usuário
@@ -42,7 +50,7 @@ public class Usuario implements Serializable{
 	/**
 	 * Gênero do usuário
 	 */
-	private char sexo;
+	private Character sexo;
 	
 	/**
 	 * Altura do usuário
@@ -65,7 +73,12 @@ public class Usuario implements Serializable{
 	/**
 	 * Senha de login
 	 */
+	@JsonIgnore
 	private String senha;
+	
+	@ElementCollection(fetch=FetchType.EAGER)
+	@CollectionTable(name="Perfil")
+	private Set<Integer> perfis = new HashSet<>();
 	
 	@OneToMany(mappedBy="usuarioId")
 	private List<Peso> pesos = new ArrayList<>();
@@ -82,7 +95,9 @@ public class Usuario implements Serializable{
 	/**
 	 * Construção de usuário sem parâmetros
 	 */
-	public Usuario() {}
+	public Usuario() {
+		addPerfil(Perfil.USER);
+	}
 
 
 	/**
@@ -96,7 +111,7 @@ public class Usuario implements Serializable{
 	 * @param email
 	 * @param senha
 	 */
-	public Usuario(Integer id, String nome, String sobrenome, char sexo, Double altura, Date data, String email,
+	public Usuario(Integer id, String nome, String sobrenome, Character sexo, Double altura, Date data, String email,
 			String senha) {
 		this.id = id;
 		this.nome = nome;
@@ -106,7 +121,10 @@ public class Usuario implements Serializable{
 		this.nascimento = data;
 		this.email = email;
 		this.senha = senha;
+		addPerfil(Perfil.USER);
 	}
+
+
 
 
 	/**
@@ -145,7 +163,7 @@ public class Usuario implements Serializable{
 	 * Obter gênero
 	 * @return gênero
 	 */
-	public char getSexo() {
+	public Character getSexo() {
 		return sexo;
 	}
 
@@ -154,7 +172,7 @@ public class Usuario implements Serializable{
 	 * Incluir/modificar novo gênero
 	 * @param sexo
 	 */
-	public void setSexo(char sexo) {
+	public void setSexo(Character sexo) {
 		this.sexo = sexo;
 	}
 
@@ -189,7 +207,6 @@ public class Usuario implements Serializable{
 	/**
 	 * Incluir/modificar nova data de nascimento
 	 * @param data
-	 * @throws ParseException
 	 */
 	public void setNascimento(Date data) {
 		this.nascimento = data;
@@ -243,6 +260,16 @@ public class Usuario implements Serializable{
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+	
+	public Set<Perfil> getPerfis() {
+		return perfis.stream().map(x -> Perfil.toEnum(x)).collect(Collectors.toSet());
+	}
+
+
+	public void addPerfil(Perfil perfil) {
+		perfis.add(perfil.getCod());
+	}
 
 
 	@Override
@@ -267,6 +294,7 @@ public class Usuario implements Serializable{
 			return false;
 		return true;
 	}
+
 	
 	
 
