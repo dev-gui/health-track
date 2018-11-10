@@ -45,15 +45,15 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label class="text-light">Nome</label>
-                                    <input type="text" class="form-control" id="nome" placeholder="" th:field="*{nome}">
+                                    <input type="text" class="form-control" id="nome" placeholder="" th:field="*{nome}" required="required">
                                 </div>
                                 <div class="form-group">
                                     <label class="text-light">Sobrenome</label>
-                                    <input type="text" class="form-control" id="sobrenome" placeholder="" th:field="*{sobrenome}" >
+                                    <input type="text" class="form-control" id="sobrenome" placeholder="" th:field="*{sobrenome}" required="required">
                                 </div>
                                 <div class="form-group">
                                     <label class="text-light">Sexo</label>
-                                    <select class="select2 form-control custom-select" style="width: 100%; height:36px;" th:field="*{sexo}">
+                                    <select class="select2 form-control custom-select" style="width: 100%; height:36px;" th:field="*{sexo}"  required="required">
                                         <option value=" ">Selecione</option>
                                         <option value="F">Feminino</option>
                                         <option value="M">Masculino</option>
@@ -61,23 +61,19 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="text-light">Altura</label>
-                                    <input type="text" class="form-control" placeholder="1,75" id="alt" data-mask="0,00" th:field="*{altura}">
+                                    <input type="text" class="form-control" placeholder="1,75" id="alt" data-mask="0,00" th:field="*{altura}" required="required">
                                 </div>
                                 <div class="form-group">
                                     <label class="text-light">Data de Nascimento</label>
-                                    <input type="text" class="form-control data" id="nascimento" placeholder="dd/mm/aaaa" th:field="*{nascimento}">
+                                    <input type="text" class="form-control data" id="nascimento" placeholder="dd/mm/aaaa" th:field="*{nascimento}" required="required">
                                 </div>
                                 <div class="form-group">
                                     <label class="text-light">Email</label>
-                                    <input type="text" class="form-control" id="email" placeholder="" th:field="*{email}">
+                                    <input type="text" class="form-control" id="email" placeholder="" th:field="*{email}" required="required">
                                 </div>
                                 <div class="form-group">
                                     <label class="text-light">Senha</label>
-                                    <input type="password" class="form-control" id="senha" placeholder="" th:field="*{senha}">
-                                </div>
-                                <div class="form-group">
-                                    <label class="text-light">Senha</label>
-                                    <input type="password" class="form-control" id="senha1" placeholder="">
+                                    <input type="password" class="form-control" id="senha" placeholder="" th:field="*{senha}" required="required">
                                 </div>
                             </div>
                         </div>
