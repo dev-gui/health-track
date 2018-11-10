@@ -36,8 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			"/dist/**",
 			"/imagens/**",
 			"/js/**",
-			"/h2/**",
-			"/resources/**"
+			"/h2/**"
 	};
 	
 	@Override
@@ -52,7 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         .loginPage("/")
         .loginProcessingUrl("/login")
         .defaultSuccessUrl("/dashboard", true)
-        .failureUrl("/login.html?error=true")
+//        .failureUrl("/login.html?error=true")
 		.permitAll()
         .and()
         .logout()

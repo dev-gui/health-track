@@ -119,6 +119,46 @@ public class Usuario implements Serializable{
 
 
 
+	public List<Peso> getPesos() {
+		return pesos;
+	}
+
+
+	public List<Pressao> getPressao() {
+		return pressao;
+	}
+
+
+	public List<Alimentacao> getAlimentacao() {
+		return alimentacao;
+	}
+
+
+	public List<Atividade> getAtividade() {
+		return atividade;
+	}
+
+
+	public void setPesos(List<Peso> pesos) {
+		this.pesos = pesos;
+	}
+
+
+	public void setPressao(List<Pressao> pressao) {
+		this.pressao = pressao;
+	}
+
+
+	public void setAlimentacao(List<Alimentacao> alimentacao) {
+		this.alimentacao = alimentacao;
+	}
+
+
+	public void setAtividade(List<Atividade> atividade) {
+		this.atividade = atividade;
+	}
+
+
 	/**
 	 * Obter nome
 	 * @return nome do usuário
